@@ -140,13 +140,6 @@ void MainGame::linkToon()
 
 void MainGame::linkGeo()
 {
-	float randX = ((float)rand() / (RAND_MAX));
-	float randY = ((float)rand() / (RAND_MAX));
-	float randZ = ((float)rand() / (RAND_MAX));
-	// Frag: uniform float randColourX; uniform float randColourY; uniform float randColourZ;
-	geoShader.setFloat("randColourX", randX);
-	geoShader.setFloat("randColourY", randY);
-	geoShader.setFloat("randColourZ", randZ);
 	// Geom: uniform float time;
 	geoShader.setFloat("time", counter);
 }
@@ -173,17 +166,15 @@ void MainGame::linkReflect()
 }
 
 void MainGame::linkADS()
-{	
-	adsShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
-	adsShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
-	adsShader.setVec3("lightPos", glm::vec3(1.2f, 1.0f, 2.0f));
-	adsShader.setVec3("viewPos", myCamera.getPos());
+{
 	adsShader.setMat4("projection", myCamera.getProjection());
 	adsShader.setMat4("view", myCamera.getView());
 	adsShader.setMat4("model", transform.GetModel());
+	adsShader.setVec3("lightColour", 1.0f, 1.0f, 1.0f);
+	adsShader.setVec3("objectColour", 1.0f, 0.5f, 0.31f);	
+	adsShader.setVec3("lightPosition", glm::vec3(1.2f, 1.0f, 2.0f));
+	adsShader.setVec3("viewPosition", myCamera.getPos());	
 }
-
-
 
 void MainGame::drawGame()
 {
@@ -193,7 +184,7 @@ void MainGame::drawGame()
 	Texture texture1("..\\res\\water.jpg"); //load texture
 
 	// Mesh 1 Reflector
-	transform.SetPos(glm::vec3(-2, -sinf(counter), 0.0));
+	transform.SetPos(glm::vec3(0, -sinf(counter), 0.0));
 	transform.SetRot(glm::vec3(0.0, counter * 5, 0.0));
 	transform.SetScale(glm::vec3(0.3, 0.3, 0.3));
 
@@ -205,13 +196,13 @@ void MainGame::drawGame()
 	mesh1.updateSphereData(*transform.GetPos(), 0.62f);
 
 	// Mesh 2 Exploder
-	transform.SetPos(glm::vec3(0.0, -1.0, 0.0));
+	transform.SetPos(glm::vec3(-2.0, -1.0, 0.0));
 	transform.SetRot(glm::vec3(0.0, counter * 5, 0.0));
 	transform.SetScale(glm::vec3(0.01, 0.01, 0.01));
 
 	geoShader.Bind();
 	linkGeo();
-	texture.Bind(0);
+	texture1.Bind(0);
 	geoShader.Update(transform, myCamera);
 	mesh2.draw();
 	mesh2.updateSphereData(*transform.GetPos(), 0.62f);
@@ -251,6 +242,4 @@ void MainGame::drawGame()
 
 
 	_gameDisplay.swapBuffer();	
-	
-
 } 
