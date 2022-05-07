@@ -171,8 +171,8 @@ void MainGame::linkADS()
 	adsShader.setMat4("view", myCamera.getView());
 	adsShader.setMat4("model", transform.GetModel());
 	adsShader.setVec3("lightColour", 1.0f, 1.0f, 1.0f);
-	adsShader.setVec3("objectColour", 1.0f, 0.5f, 0.31f);	
-	adsShader.setVec3("lightPosition", glm::vec3(1.2f, 1.0f, 2.0f));
+	//adsShader.setVec3("objectColour", 0.3f, 0.2f, 0.5f);	
+	adsShader.setVec3("lightPosition", glm::vec3(1.2f, 0.0f, 2.0f));
 	adsShader.setVec3("viewPosition", myCamera.getPos());	
 }
 
@@ -208,16 +208,16 @@ void MainGame::drawGame()
 	mesh2.updateSphereData(*transform.GetPos(), 0.62f);
 
 	// Tester Mesh
-	transform.SetPos(glm::vec3(2.0, -sinf(counter), 0.0));
+	transform.SetPos(glm::vec3(2.0, 0.0, 0.0));
 	transform.SetRot(glm::vec3(0.0, counter * 5, 0.0));
-	transform.SetScale(glm::vec3(0.3, 0.3, 0.3));
+	transform.SetScale(glm::vec3(0.01, 0.01, 0.01));
 
 	adsShader.Bind();
 	linkADS();
-	texture1.Bind(0);
+	texture.Bind(0);
 	adsShader.Update(transform, myCamera);
-	mesh3.draw();
-	mesh3.updateSphereData(*transform.GetPos(), 0.62f);
+	mesh2.draw();
+	mesh2.updateSphereData(*transform.GetPos(), 0.62f);
 
 
 	//// Mesh 3
