@@ -100,6 +100,7 @@
   <ItemGroup>
     <None Include="..\res\adsLighting.frag" />
     <None Include="..\res\adsLighting.vert" />
+    <None Include="..\res\adsLighting.geom" />
     <None Include="..\res\fogShader.frag" />
     <None Include="..\res\fogShader.vert" />
     <None Include="..\res\shaderGeoText.frag" />
@@ -119,6 +120,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </Object>
     <Object Include="..\res\monkey3.obj">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </Object>
+    <Object Include="..\res\sword.obj">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </Object>
     <Object Include="..\res\Zuccarello.obj">

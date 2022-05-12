@@ -1,8 +1,8 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Lab2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   MainGame.cpp
-C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(17,9): warning C4930: 'Shader adsShader(void)': prototyped function not called (was a variable definition intended?)
-C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(15,9): warning C4930: 'Shader rimShader(void)': prototyped function not called (was a variable definition intended?)
-C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(16,9): warning C4930: 'Shader geoShader(void)': prototyped function not called (was a variable definition intended?)
-C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(14,9): warning C4930: 'Shader toonShader(void)': prototyped function not called (was a variable definition intended?)
-C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(13,9): warning C4930: 'Shader fogShader(void)': prototyped function not called (was a variable definition intended?)
+C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(16,9): warning C4930: 'Shader adsShader(void)': prototyped function not called (was a variable definition intended?)
+C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(14,9): warning C4930: 'Shader rimShader(void)': prototyped function not called (was a variable definition intended?)
+C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(15,9): warning C4930: 'Shader geoShader(void)': prototyped function not called (was a variable definition intended?)
+C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(13,9): warning C4930: 'Shader toonShader(void)': prototyped function not called (was a variable definition intended?)
+C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Lab1\MainGame.cpp(12,9): warning C4930: 'Shader fogShader(void)': prototyped function not called (was a variable definition intended?)
   Lab1.vcxproj -> C:\Users\andys\Desktop\Uni OpenGL\Lab7Solution\Debug\Lab1.exe

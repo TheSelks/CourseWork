@@ -127,6 +127,9 @@
     <None Include="..\res\adsLighting.vert">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\res\adsLighting.geom">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Object Include="..\res\monkey3.obj">
@@ -136,6 +139,9 @@
       <Filter>Resource Files</Filter>
     </Object>
     <Object Include="..\res\Zuccarello.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\res\sword.obj">
       <Filter>Resource Files</Filter>
     </Object>
   </ItemGroup>

@@ -79,6 +79,7 @@ void Shader::Update(const Transform& transform, const Camera& camera)
 }
 
 
+
 GLuint Shader::CreateShader(const std::string& text, unsigned int type)
 {
 	GLuint shader = glCreateShader(type); //create shader based on specified type

@@ -9,6 +9,7 @@ vec2 TexCoords;
 
 uniform vec3 lightColour;
 
+uniform float counter;
 uniform vec3 lightPosition;
 uniform vec3 viewPosition;
 uniform sampler2D inTexture;
@@ -33,5 +34,17 @@ void main()
      vec3 specular = specularStrength * spec * lightColour;
 
      vec3 result = (ambient + diffuse + specular) * color;
-     fragmentColour = vec4(result, 1.0);
+
+     if(counter < 5.0 || counter > 15.0)
+     {
+        fragmentColour = vec4(result, 1.0);
+     }
+     else
+     {
+        result.x = 1.0 - result.x;
+        result.y = 1.0 - result.y;
+        result.z = 1.0 - result.z;
+        
+        fragmentColour = vec4(result, 1.0);
+     }
 }

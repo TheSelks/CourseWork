@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 
-
 Transform transform;
 
 MainGame::MainGame()
@@ -36,7 +35,7 @@ void MainGame::initSystems()
 	
 	mesh1.loadModel("..\\res\\monkey3.obj");
 	mesh2.loadModel("..\\res\\Zuccarello.obj");
-	mesh3.loadModel("..\\res\\bookshelf.obj");
+	mesh3.loadModel("..\\res\\sword.obj");
 	fogShader.init("..\\res\\fogShader.vert", "..\\res\\fogShader.frag"); //new shader
 	toonShader.init("..\\res\\shaderToon.vert", "..\\res\\shaderToon.frag"); //new shader
 	rimShader.init("..\\res\\shaderRim.vert", "..\\res\\shaderRim.frag");
@@ -167,12 +166,13 @@ void MainGame::linkReflect()
 
 void MainGame::linkADS()
 {
+	adsShader.setFloat("time", counter);
+	adsShader.setFloat("counter", counter);
 	adsShader.setMat4("projection", myCamera.getProjection());
 	adsShader.setMat4("view", myCamera.getView());
 	adsShader.setMat4("model", transform.GetModel());
 	adsShader.setVec3("lightColour", 1.0f, 1.0f, 1.0f);
-	//adsShader.setVec3("objectColour", 0.3f, 0.2f, 0.5f);	
-	adsShader.setVec3("lightPosition", glm::vec3(1.2f, 0.0f, 2.0f));
+	adsShader.setVec3("lightPosition", glm::vec3(5.0f, 5.0f, 5.0f));
 	adsShader.setVec3("viewPosition", myCamera.getPos());	
 }
 
@@ -184,40 +184,41 @@ void MainGame::drawGame()
 	Texture texture1("..\\res\\water.jpg"); //load texture
 
 	// Mesh 1 Reflector
-	transform.SetPos(glm::vec3(0, -sinf(counter), 0.0));
+	transform.SetPos(glm::vec3(0, -1.0, 0.0));
 	transform.SetRot(glm::vec3(0.0, counter * 5, 0.0));
-	transform.SetScale(glm::vec3(0.3, 0.3, 0.3));
+	transform.SetScale(glm::vec3(0.01, 0.01, 0.01));
+	
 
 	reflectShader.Bind();
 	linkReflect();
 	texture.Bind(0);
 	reflectShader.Update(transform, myCamera);
-	mesh1.draw();
-	mesh1.updateSphereData(*transform.GetPos(), 0.62f);
+	mesh2.draw();
+	mesh2.updateSphereData(*transform.GetPos(), 0.62f);
 
 	// Mesh 2 Exploder
 	transform.SetPos(glm::vec3(-2.0, -1.0, 0.0));
 	transform.SetRot(glm::vec3(0.0, counter * 5, 0.0));
-	transform.SetScale(glm::vec3(0.01, 0.01, 0.01));
+	transform.SetScale(glm::vec3(0.03, 0.03, 0.03));
 
 	geoShader.Bind();
 	linkGeo();
 	texture1.Bind(0);
 	geoShader.Update(transform, myCamera);
-	mesh2.draw();
-	mesh2.updateSphereData(*transform.GetPos(), 0.62f);
+	mesh3.draw();
+	mesh3.updateSphereData(*transform.GetPos(), 0.62f);
 
 	// Tester Mesh
 	transform.SetPos(glm::vec3(2.0, 0.0, 0.0));
-	transform.SetRot(glm::vec3(0.0, counter * 5, 0.0));
-	transform.SetScale(glm::vec3(0.01, 0.01, 0.01));
+	transform.SetRot(glm::vec3(0.0, counter*5, 0.0));
+	transform.SetScale(glm::vec3(0.5, 0.5, 0.5));
 
 	adsShader.Bind();
 	linkADS();
 	texture.Bind(0);
 	adsShader.Update(transform, myCamera);
-	mesh2.draw();
-	mesh2.updateSphereData(*transform.GetPos(), 0.62f);
+	mesh1.draw();
+	mesh1.updateSphereData(*transform.GetPos(), 0.62f);
 
 
 	//// Mesh 3
