@@ -166,7 +166,6 @@ void MainGame::linkReflect()
 
 void MainGame::linkADS()
 {
-	adsShader.setFloat("time", counter);
 	adsShader.setFloat("counter", counter);
 	adsShader.setMat4("projection", myCamera.getProjection());
 	adsShader.setMat4("view", myCamera.getView());
